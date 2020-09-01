@@ -3,12 +3,16 @@
     
     <addition></addition>
      <substraction></substraction>
+     <p>-----------------------</p>
+     <core></core>
   </div>
 </template>
 
 <script>
 import Addition from './components/Addition.vue'
 import Substraction from './components/Substraction.vue'
+import Core from './components/Core.vue'
+
 export default {
 
   data() {
@@ -17,6 +21,8 @@ export default {
   components: {
      "addition": Addition,
      "substraction": Substraction,
+     "core": Core,
+
   }
 };
 </script>
