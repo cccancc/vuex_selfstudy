@@ -1,6 +1,9 @@
 <template>
     <div>
-        <h3>The count value is: {{ $store.state.count }}</h3>
+        State: <h3>The count value is: {{ $store.state.count }}</h3>
+        <p>----------------------------------</p>
+        Getters:<h3>The count value is: {{ $store.getters.showNum }}</h3>
+        <p>----------------------------------</p>
         <button @click="btnhandle1">+1</button>
          <button @click="btnhandle2">+3</button>
          <button @click="btnhandle3">+1 Async</button>

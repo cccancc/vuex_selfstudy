@@ -5,6 +5,7 @@
      <substraction></substraction>
      <p>-----------------------</p>
      <core></core>
+     <todos1></todos1>
   </div>
 </template>
 
@@ -12,16 +13,19 @@
 import Addition from './components/Addition.vue'
 import Substraction from './components/Substraction.vue'
 import Core from './components/Core.vue'
+import Todo1 from './components/Todos1'
 
 export default {
 
   data() {
      return {};
   },
+
   components: {
      "addition": Addition,
      "substraction": Substraction,
      "core": Core,
+     "todos1": Todo1,
 
   }
 };

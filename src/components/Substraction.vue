@@ -1,12 +1,15 @@
 <template>
     <div>
-        <h3>The count value is: {{count}}</h3>
+        State:<h3>The count value is: {{count}}</h3>
+        <p>----------------------------------</p>
+        Getters: <h3>The count value is: {{showNum}}</h3>
+        <p>----------------------------------</p>
         <button @click="bnthandle1">-1</button>
         <button @click="bnthandle2">-3</button>
     </div>
 </template>
 <script>
-import { mapState } from 'vuex'
+import { mapState, mapGetters } from 'vuex'
 import { mapMutations } from 'vuex'
 
 export default {
@@ -14,7 +17,8 @@ export default {
         return{};
     },
     computed:{
-        ...mapState(['count'])
+        ...mapState(['count']),
+        ...mapGetters(['showNum'])
     },
     methods: {
         ...mapMutations(['sub','subN']),
