@@ -5,8 +5,8 @@
 <a-button type="primary" @click="addItem">添加事项</a-button>
 <a-list bordered :dataSource='list' class="dt_list">
     <a-list-item slot="renderItem" slot-scope="item">
-        <a-checkbox>{{item.info}} </a-checkbox>
-        <a slot="actions">删除</a>
+        <a-checkbox :checked="item.done" @change="(e)=>{cbStatusChanged(e,item.id)}">{{item.info}} </a-checkbox>
+        <a slot="actions" @click="removeItemById(item.id)">删除</a>
     </a-list-item>
     <!--  footer  -->
     <div slot="footer" class="footer">
@@ -29,7 +29,7 @@ import { mapState } from 'vuex'
 export default {
     data(){
         return {
-          //  list:[]
+            //list:[]
         }
     },
        created(){
@@ -49,9 +49,18 @@ export default {
                return this.$message.warning('文本不能为空')
            }
            this.$store.commit('addItemMutation')
-       }
-   }
+       },
+       removeItemById(id){
+           consle.log(id)
+           this.$store.commit('removeItem',id)
+           
+   },
+   cbStatusChanged(e,id){
+//监听复选框状态(选中或者没有选中)
+    console.log(e.target.checked+id)
+   },
 
+}
 }
 </script>
 

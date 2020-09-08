@@ -8,9 +8,29 @@ Vue.use(Vuex)
 export default new Vuex.Store({
     state: {
         count: 0, //默认值
-
+        list: [{
+                "id": 0,
+                "info": "racing car sprays burning fuel into``",
+                "done": false
+            },
+            {
+                "id": 1,
+                "info": "Japanese princes to wed``",
+                "done": false
+            },
+            {
+                "id": 2,
+                "info": "Australian walks 100km``",
+                "done": false
+            },
+            {
+                "id": 3,
+                "info": "Man charged over missing wedding``",
+                "done": false
+            }
+        ],
         inputValue: 'aaa',
-        nextId = 5,
+        nextId: 5,
     },
     mutations: {
         add(state) {
@@ -44,6 +64,13 @@ export default new Vuex.Store({
             state.list.push(obj)
             state.nextId++
                 state.inputValue = ''
+        },
+        removeItem(state, id) {
+            //根据id查找对应项索引
+            const i = state.list.findIndex(x => x.id === id)
+            if (i !== -1) {
+                state.list.splice(i, 1)
+            }
         }
     },
     actions: {
